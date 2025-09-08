@@ -15,7 +15,7 @@ function display(e){
 function upperdisplay(e){
     upper_dis.value = e
 }
-// finction to  solve and give answer 
+// function to  solve and give answer 
 function solve(){
     try{
      return Function("return " + string )();}
@@ -25,7 +25,7 @@ function solve(){
 }
 
 
-// handel all button of calculator
+// handle all button of calculator
 button.addEventListener("click", (e)=>{
    let  clicked = e.target.closest("button");
     // if user click on = button then dont = add in string
