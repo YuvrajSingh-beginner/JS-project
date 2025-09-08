@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="flex justify-center  w-full ">
+
+
+  <div class=" w-[270px] border rounded-2xl overflow-hidden mt-40 bg-[#000000]">
+    <div id="display" disabled  class=" box-border  bg-[#333333] mt-2 mx-2 border rounded-xl flex  flex-col ">
+      <input type="text" id="second_display" disabled class="h-11 pr-2 pt-4 pb-0 border-none rounded-xl text-[#bcbcbc]  text-right font-semibold text-xl w-full box-border"  >
+      <input type="text" id="main_display" disabled  class="h-11 p-0 pr-2 border-none  text-right  text-white text-4xl w-full box-border" >
+    </div>
+    <div class="buttons  grid grid-rows-5 grid-cols-4 gap-2.5   p-3 bg-[#000000]">
+      <button class="p-3   border-none rounded-full bg-[#A5A5A5] text-black font-semibold text-xl active:bg-[#d0d0d0]" value="AC"><i class="fa-solid fa-delete-left"></i></button>
+      <button class="p-1 border-none rounded-full bg-[#A5A5A5] text-black font-semibold text-xl active:bg-[#d0d0d0]" value="C">C</button>
+      <button class="p-1 border-none rounded-full bg-[#A5A5A5] text-black font-semibold text-xl active:bg-[#d0d0d0]" value="%">%</button>
+      <button class="p-1 border-none rounded-full bg-[#FF9500] text-white font-semibold text-xl active:bg-[#fab758]" value="/"><i class="fa-solid fa-divide"></i></button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="7">7</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="8">8</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="9" >9</button>
+      <button class="p-1 border-none rounded-full bg-[#FF9500] text-white font-semibold text-xl active:bg-[#fab758]" value="*"><i class="fa-solid fa-xmark"></i></button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="4">4</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="5">5</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="6">6</button>
+      <button class="p-1 border-none rounded-full bg-[#FF9500] text-white font-semibold text-xl active:bg-[#fab758]" value="-"><i class="fa-solid fa-minus"></i></button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="1">1</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="2">2</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold text-xl active:bg-[#5a5a5a]" value="3">3</button>
+      <button class="p-1 border-none rounded-full bg-[#FF9500] text-white font-semibold text-xl active:bg-[#fab758]" value="+"><i class="fa-solid fa-plus"></i></button>
+      <button class="col-span-2 p-1 border-none rounded-full bg-[#333333] text-white  font-semibol text-xl active:bg-[#5a5a5a]" value="0">0</button>
+      <button class="p-1 border-none rounded-full bg-[#333333] text-white font-semibold  text-xl  active:bg-[#5a5a5a]" value=".">.</button>
+      <button class="p-1 border-none rounded-full bg-[#FF9500] text-white  font-semibold text-xl    active:bg-[#fab758]" value="="><i class="fa-solid fa-equals"></i></button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
