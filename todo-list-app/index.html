@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task App</title>
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body class="h-full bg-gray-600">
+
+  <div class="border border-amber-500 flex justify-center h-full box-border">
+    <!-- Background -->
+    <div class="lg:min-w-[400px] fixed bg-gradient-to-b from-[#EEF2F3] to-[#8E9EAB] -z-1 p-2 h-full">
+      <div class="w-[400px] flex justify-center">
+        <div class="rounded-2xl max-w-[250px] flex flex-col mt-8 px-2 py-3 bg-[#ffffff] shadow-[0px_0px_20px_10px_#cbd5e0]">
+          <div id="display-date" class="text-6xl font-extrabold text-center text-[#000000ac]"></div>
+          <div id="display-time" class="text-3xl font-extrabold text-center text-[#000000ac]"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task container -->
+    <div>
+      <div class="lg:w-[400px] z-2 translate-y-60 bg-[#F9F9F9] rounded-t-3xl min-h-[500px] overflow-hidden">
+        <p class="w-full p-2 mt-5 text-[20px] font-semibold text-center">Task list</p>
+        <div class="grid grid-cols-4 gap-2 gap-y-4 p-2">
+          <!-- Trigger modal -->
+          <button id="openModal" class="text-[18px] bg-gradient-to-bl from-slate-100 to-neutral-500 font-semibold text-white py-2 rounded-2xl col-span-4 cursor-pointer">
+            entre new task
+          </button>
+          <button class="text-[18px] bg-gradient-to-bl from-red-800 to-red-400 font-semibold text-white p-2 rounded-2xl">school</button>
+          <button class="text-[18px] bg-gradient-to-bl from-cyan-500 to-cyan-900 font-semibold text-white p-2 rounded-2xl">Work</button>
+          <button class="text-[18px] bg-gradient-to-tr from-fuchsia-900 to-fuchsia-500 font-semibold text-white p-2 rounded-2xl">Grosery</button>
+          <button class="text-[18px] bg-gradient-to-r from-emerald-500 to-emerald-900 font-semibold text-white p-2 rounded-2xl">Health</button>
+        </div>
+
+        <!-- Example task card -->
+        <div class="task_contaner">
+          <div class="rounded-2xl m-2 bg-gradient-to-b from-[#EEF2F3] to-[#adc1d1] shadow-[0px_0px_30px_5px_#cbd5e0]">
+            <div class="flex justify-between px-4 py-2">
+              <p class="py-1 px-2 rounded-2xl bg-gradient-to-bl from-red-800 to-red-400 text-white">School</p>
+              <span class="py-1 px-2 rounded-2xl bg-[#28c78d] text-white">Completed</span>
+            </div>
+            <div class="p-2 flex justify-between gap-3 items-center">
+              <p class="max-w-[250px] break-words p-1 rounded-2xl bg-[#F9F9F9]">i have to go to school and learn new things</p>
+              <div class="flex gap-2">
+                <button class="border rounded-full px-3.5 py-2 border-green-800 text-green-700"><i class="fa-solid fa-pencil"></i></button>
+                <button class="border border-red-700 text-red-700 rounded-full px-3.5 py-2"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End card -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal (hidden by default) -->
+<div id="taskModal" class="hidden fixed inset-0 bg-black/30 flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl p-6 w-[95%] max-w-[400px] shadow-xl">
+    <h2 class="text-lg font-bold mb-4 text-center">Add New Task</h2>
+    <form class="space-y-4">
+      
+      <!-- Input field -->
+      <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300" placeholder="Enter your task...">
+
+      <!-- Category dropdown -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Category</label>
+        <select class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300">
+          <option value="">Select category</option>
+          <option value="school">School</option>
+          <option value="work">Work</option>
+          <option value="grocery">Grocery</option>
+          <option value="health">Health</option>
+        </select>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex justify-end gap-3 mt-4">
+        <button type="button" id="closeModal" class="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+  <script src="main.js">
+   
+  </script>
+
+</body>
+</html>
