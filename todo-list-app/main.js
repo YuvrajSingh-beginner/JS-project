@@ -41,7 +41,7 @@ function createTaskCard(category, status, text) {
 
   const cat = document.createElement("p");
   cat.className =
-    "py-1 px-2 rounded-2xl bg-gradient-to-bl from-red-800 to-red-400 text-white";
+    "py-1 px-3 rounded-2xl bg-gradient-to-bl from-red-800 to-red-400 text-white capitalize";
   cat.textContent = category;
 
   const stat = document.createElement("span");
@@ -56,7 +56,7 @@ function createTaskCard(category, status, text) {
   bottom.className = "p-2 flex justify-between gap-3 items-center";
 
   const desc = document.createElement("p");
-  desc.className = "max-w-[250px] break-words px-3 py-2 rounded-2xl bg-[#F9F9F9]";
+  desc.className = "max-w-[250px] min-w-[249px] break-words px-3 py-2 rounded-2xl bg-[#F9F9F9] first-letter:uppercase";
   desc.textContent = text;
 
   const btnGroup = document.createElement("div");
@@ -85,9 +85,6 @@ function createTaskCard(category, status, text) {
   return card;
 }
 
-  createTaskCard("School", "Completed", "I have to go to school and learn new things");
-  createTaskCard("Health", "pandding", "I have to go to hospital and for checkup ");
-  createTaskCard("Work ", "Completed", "guy some eggs, bananas and milk");
 
 // Open modal
 openModalBtn.addEventListener("click", () => {
@@ -105,3 +102,36 @@ taskModal.addEventListener("click", (e) => {
     taskModal.classList.add("hidden");
   }
 });
+
+//  get value from form 
+let form = document.querySelector("form");
+let data = JSON.parse(localStorage.getItem("list")) || [];
+// show localstorage data at screen on first load
+ function display_data() 
+  {
+    task_contaner.innerHTML ="";
+    data.forEach(e => {
+  createTaskCard(e.tage, "Pending", e.task);
+});}
+display_data();
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let task = document.querySelector("input").value;
+  let tage = document.querySelector("select").value;
+
+  if (task !== "" && tage !== "") {
+    data.push({ task, tage });
+    console.log("After push:", data);
+
+    // Save back to localStorage (make sure key has no spaces!)
+    localStorage.setItem("list", JSON.stringify(data));
+
+    // Clear form
+    document.querySelector("input").value = "";
+    document.querySelector("select").value = "";
+  display_data();
+  }
+});
+
