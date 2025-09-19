@@ -33,15 +33,26 @@ function createTaskCard(category, status, text) {
   // main card
   const card = document.createElement("div");
   card.className =
-    "rounded-2xl m-2 bg-gradient-to-b from-[#EEF2F3] to-[#adc1d1] shadow-[0px_0px_30px_5px_#cbd5e0]";
+    "rounded-2xl m-2 bg-gradient-to-b from-[#EEF2F3] to-[#adc1d1] shadow-[0px_0px_30px_5px_#cbd5e0] card";
 
   // top section
   const top = document.createElement("div");
   top.className = "flex justify-between px-4 py-2";
 
   const cat = document.createElement("p");
+  if (category === "school"){
   cat.className =
     "py-1 px-3 rounded-2xl bg-gradient-to-bl from-red-800 to-red-400 text-white capitalize";
+  }
+  else if (category === "work"){
+    cat.className = "py-1 px-3 rounded-2xl bg-gradient-to-bl from-cyan-500 to-cyan-900 text-white capitalize";
+  }
+  else if (category === "health"){
+    cat.className = "py-1 px-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-900  text-white capitalize";
+  }
+  else if (category === "grocery"){
+    cat.className = "py-1 px-3 rounded-2xl bg-gradient-to-tr from-fuchsia-900 to-fuchsia-500 text-white capitalize";
+  }
   cat.textContent = category;
 
   const stat = document.createElement("span");
@@ -64,13 +75,29 @@ function createTaskCard(category, status, text) {
 
   const editBtn = document.createElement("button");
   editBtn.className =
-    "border rounded-full px-3.5 py-2 border-green-800 text-green-700";
+    "border rounded-full px-3.5 py-2 border-green-800 text-green-700 cursor-pointer";
   editBtn.innerHTML = '<i class="fa-solid fa-pencil"></i>';
 
   const deleteBtn = document.createElement("button");
   deleteBtn.className =
-    "border border-red-700 text-red-700 rounded-full px-3.5 py-2";
+    "border border-red-700 text-red-700 rounded-full px-3.5 py-2 cursor-pointer ";
   deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+         deleteBtn.addEventListener("click", () => {
+         // find the matching task in data
+         const idx = data.findIndex(item =>
+           item.task === text && item.tage === category && item.status === status
+         );
+       
+         if (idx > -1) {
+           data.splice(idx, 1); // remove from array
+           localStorage.setItem("list", JSON.stringify(data));
+         }
+       
+         // remove only this card from the DOM
+         card.remove();
+       });
+
 
   btnGroup.appendChild(editBtn);
   btnGroup.appendChild(deleteBtn);
@@ -82,7 +109,6 @@ function createTaskCard(category, status, text) {
   card.appendChild(top);
   card.appendChild(bottom);
   task_contaner.appendChild(card);
-  return card;
 }
 
 
@@ -106,24 +132,25 @@ taskModal.addEventListener("click", (e) => {
 //  get value from form 
 let form = document.querySelector("form");
 let data = JSON.parse(localStorage.getItem("list")) || [];
+
+
 // show localstorage data at screen on first load
- function display_data() 
+ function display_data(content) 
   {
     task_contaner.innerHTML ="";
-    data.forEach(e => {
-  createTaskCard(e.tage, "Pending", e.task);
+    content.forEach(e => {
+  createTaskCard(e.tage, e.status, e.task);
 });}
-display_data();
+display_data(data);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let task = document.querySelector("input").value;
   let tage = document.querySelector("select").value;
-
   if (task !== "" && tage !== "") {
-    data.push({ task, tage });
-    console.log("After push:", data);
+    let status = "Pending";
+    data.push({ task, tage , status });
 
     // Save back to localStorage (make sure key has no spaces!)
     localStorage.setItem("list", JSON.stringify(data));
@@ -131,7 +158,25 @@ form.addEventListener("submit", (e) => {
     // Clear form
     document.querySelector("input").value = "";
     document.querySelector("select").value = "";
-  display_data();
+  display_data(data);
   }
 });
 
+//  filter function hendel
+let data2 =[];
+function fil(s){
+ data2 = data.filter(function(e){
+  if (e.tage === s){
+    return e;
+  }
+ })
+}
+
+ let filter_btn = document.querySelector(".filter");
+   filter_btn.addEventListener("click", (e)=>{
+       let btn = e.target.closest("button");
+       if(btn.value!==""){
+         fil(btn.value);
+        display_data(data2)
+       }
+   }) 
