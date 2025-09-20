@@ -124,7 +124,7 @@ stat.addEventListener("click", () => {
   // assemble card
   card.appendChild(top);
   card.appendChild(bottom);
-  task_contaner.appendChild(card);
+  task_contaner.prepend(card);
 
   // ---------------- Delete Button ----------------
   deleteBtn.addEventListener("click", () => {
