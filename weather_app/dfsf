@@ -1,0 +1,24 @@
+
+const apiKey = "fc7899518a9aa1ad66474259ceb5a478";
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
+        .then(response => response.json())
+        .then(data => {
+          console.log("Weather Data:", data);
+        })
+        .catch(error => console.error("Error fetching weather data:", error));
+
+
+
+ // 2️⃣ Fetch air quality
+      fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(airData => {
+          console.log("Air Quality Data:", airData);
+
+          // Display some air quality info in console
+          console.log(`Air Quality Index (AQI): ${airData.list[0].main.aqi}`);
+          console.log(`PM2.5: ${airData.list[0].components.pm2_5}`);
+          console.log(`PM10: ${airData.list[0].components.pm10}`);
+        })
+        .catch(error => console.error("Error fetching air quality data:", error));

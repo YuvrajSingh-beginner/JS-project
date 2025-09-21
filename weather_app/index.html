@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body class="">
+<nav class="flex justify-between px-5 py-3 md:py-5 md:px-6 ">
+    <div class="text-2xl font-semibold city-name" ></div>
+    <div class="search cursor-pointer relative" name="search"><i class="fa-solid fa-magnifying-glass text-xl"></i></div>
+</nav>
+<form class="search-form flex  gap-2   z-10 absolute right-3 py-5 backdrop-blur-sm md:right-10 hidden "><input type="text" class="search-input border w-[80dvw] md:w-[25dvw] text-[18px] px-2.5 font-semibold rounded-2xl" placeholder="city"><button type="submit"><i class="fa-solid fa-magnifying-glass p-2 border rounded-2xl"></i></button></form>
+
+<section class=" w-screen flex items-center gap-4 pb-10 flex-col">
+
+  <div class="main flex items-center flex-col w-[90dvw] md:w-fit">
+    <div class="text-9xl flex justify-center  w-fit main-temp"></div>
+    <div class="flex gap-1 text-xl mt-2  w-fit"> <p class="weather-des">Mostly sunny</p> <p class="min-temp"></p><p>/</p> <p class="max-temp"></p> </div>
+  </div>
+
+  <div class="air_qulity w-[90dvw] md:w-[25dvw]  mt-3 border rounded-2xl ">
+    <div class="p-2">
+      <div class=" border-b px-2">
+        <p class="text-[15px] font-semibold">Air quality</p>
+      </div>
+      <div class="flex flex-row "><p class="text-[18px] px-2 w-fit air-des ">  </p><span class="text-[19px] font-semibold air-index"></span></div>
+      <p class="text-[15px] px-2 air-des2"></p>
+    </div>
+  </div>
+
+  <div class="grid grid-rows-2 grid-cols-3 w-[90dvw] md:w-[25dvw] mt-2  gap-3">
+    <div class="border px-4 py-2 rounded-2xl ">
+      <i class="fa-solid fa-cloud text-[18px]"></i>
+      <p class="text-[12px] font-semibold">Cloud</p>
+      <div class="flex  items-end"><span class="text-[20px] p-0 cloud"></span> &nbsp;<p class="text-[12px] font-semibold cloud-des">%</p></div>
+    </div>
+    <div class="border px-4 py-2 rounded-2xl ">
+      <i class="fa-solid fa-temperature-high text-[18px]"></i>
+      <p class="text-[12px] font-semibold">Feels like</p>
+      <div class="flex  items-end"><span class="text-[20px] p-0 feels-like"></span> </div>
+    </div>
+    <div class="border px-4 py-2 rounded-2xl ">
+      <img src="humidity.png" alt="" class="w-[21px]">
+      <p class="text-[12px] font-semibold">Humidity</p>
+      <div class="flex  items-end"><span class="text-[20px] p-0 humidity"></span> &nbsp;<p class="text-[12px] font-semibold">% </p></div>
+    </div>
+    <div class="border px-4 py-2 rounded-2xl ">
+      <i class="fa-solid fa-wind"></i>
+      <p class="text-[12px] font-semibold">Wind</p>
+      <div class="flex  items-end"><span class="text-[20px] p-0 wind"></span> &nbsp;<p class="text-[12px] font-semibold">Km/h</p></div>
+    </div>
+    <div class="border px-4 py-2 rounded-2xl ">
+      <p class="text-[18px] font-bold ">Pr</p>
+      <p class="text-[12px] font-semibold">Cloud</p>
+      <div class="flex  items-end"><span class="text-[20px] p-0 air-pressure"></span> &nbsp;<p class="text-[12px] font-semibold">hPa</p></div>
+    </div>
+    <div class="border px-4 py-2 rounded-2xl ">
+      <i class="fa-solid fa-eye"></i>
+      <p class="text-[12px] font-semibold">Visibility</p>
+      <div class="flex  items-end"><span class="text-[20px] p-0 visibility"></span> &nbsp;<p class="text-[12px] font-semibold">Km</p></div>
+    </div>
+  </div>
+  <div class="border rounded-2xl px-4 py-2 w-[90dvw] md:w-[25dvw] mt-2">
+    <div class=" box-border flex justify-between  py-2"><i class="fa-solid fa-sun"></i><i class="fa-solid fa-moon"></i></div>
+   <div class="bg-gray-200 rounded-full h-3">
+  <div class="sun-progress bg-blue-500 h-3 rounded-full w-[0%]"></div>
+</div>
+
+    <div class="flex justify-between"><p class="sun-up font-bold"> </p ><p class="sun-down font-bold"></p></div>
+  </div>
+</section>  
+
+  <script src="main.js"></script>
+</body>
+</html>
